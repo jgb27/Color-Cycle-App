@@ -20,7 +20,7 @@ body {
     gap: 2em;
 }
 
-.container p{
+.container p {
     font-size: 1em;
     color: #ffffff;
 }
@@ -29,29 +29,30 @@ body {
     color: #ff0000;
 }
 
-.container a{
+.container a {
     text-decoration: none;
     color: #8ce2ee;
 }
 
-.box{
+.box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 400px;
-    height: 200px;
+    height: 240px;
     border-radius: 10px;
     background-color: #ffffff;
+ 
 }
 
-.box h1{
+.box h1 {
     font-size: 20px;
     margin-bottom: 10px;
     color: #000000;
 }
 
-.box input{
+.box input[type="text"] {
     width: 80%;
     height: 40px;
     margin: 10px 0;
@@ -59,17 +60,33 @@ body {
     border-radius: 5px;
     padding: 0 10px;
     font-size: 16px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    gap: 2em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.box input::before{
-    content: "#";
-    font-size: 120px;
-    color: #aaa;
-    margin-right: 10px;
+.box input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #aaa;
 }
 
-.box input:focus{
+.box input[type="number"]{
+    width: 80%;
+    height: 40px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.box input[type="number"]:focus {
     outline: none;
     border: 1px solid #aaa;
 }
@@ -80,7 +97,7 @@ body {
     justify-content: space-between;
 }
 
-.buttons button{
+.buttons button {
     width: 45%;
     height: 40px;
     border: 1px solid #ccc;
@@ -88,14 +105,14 @@ body {
     background-color: #fff;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.buttons button:hover{
+.buttons button:hover {
     background-color: #cccccc;
 }
 
-.buttons button:active{
+.buttons button:active {
     background-color: #aaa;
 }
 
