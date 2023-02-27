@@ -1,6 +1,7 @@
 const start = document.querySelector('#start');
 const stop = document.querySelector('#stop');
 const spanError = document.querySelector('#error');
+let interval
 
 // verify if the input is a valid hex color
 const isHexColor = (color) => {
@@ -16,7 +17,7 @@ const changeColor = (color) => {
 // get the input value and verify if it's a valid color
 const getColor = () => {
     const color = document.querySelector('#color').value;
-    
+
     if (isHexColor(`#${color}`)) {
         loopThroughHexColors(color);
         spanError.textContent = '';
@@ -28,12 +29,13 @@ const getColor = () => {
 
 // loop through the hex colors
 const loopThroughHexColors = (color) => {
-    const interval = setInterval(() => {
+    interval = setInterval(() => {
         if (color === 'ffffff') {
             clearInterval(interval);
         } else {
             color = nextHexColor(color);
             changeColor(`#${color}`);
+            const colorInput = document.querySelector('#color').value = color;
         }
     }, 0.25);
 }
@@ -45,7 +47,7 @@ const nextHexColor = (color) => {
     const nextHex = hex + 1;
     const nextHexColor = nextHex.toString(16);
 
-    if(nextHexColor.length < 6) {
+    if (nextHexColor.length < 6) {
         return nextHexColor.padStart(6, '0');
     }
     console.log(`#${nextHexColor}`);
@@ -59,5 +61,5 @@ start.addEventListener('click', () => {
 });
 
 stop.addEventListener('click', () => {
-    location.reload();
+    clearInterval(interval);
 });
